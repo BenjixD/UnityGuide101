@@ -54,7 +54,7 @@ This guide is a software development approach to game development using Unity 5.
 
 The following sections will run you through a series of exercies to pick up Unity's 2D game development tools for the upcoming Global Game Jam. In this guide, we will learn the basic tools of the Unity software, understand how to interact with and between the Unity engine, and integrate your visual assets into game animations. Once you have finished these exercises, you should not only be able to apply the techniques learned here but also be able to explore new content and Unity features as a pioneer for your next indie game. 
 
-Before you begin, make sure you have Unity 5.4.1 installed and ready to be run on your computer. Open it up and create a new blank project. Congratulations, you have created your first game! (Cheesy line but you need to feel good about getting started). 
+Before you begin, make sure you have Unity 5.4.1+ installed and ready to be run on your computer. Open it up and create a new blank project. Congratulations, you have created your first game! (Cheesy line but you need to feel good about getting started). 
 
 \section{Understanding Unity}
 
@@ -114,7 +114,7 @@ Well this is boring. Lets add a platform for our character to stand on. Just cre
 \\\\
 \includegraphics[scale=0.5]{Figure0311}
 
-Ok well maybe it didn't work out quite as expected! Did you want the character to stand on the ground instead of falling through it? Well if you figured out the solution even before testing it then you're a bright one! Worry not if you tested the code without thinking, you just aren't paying enough attention! No worries, I won't tell you how to fix it. You figure it out yourself!
+Ok well maybe it didn't work out quite as expected! Did you want the character to stand on the ground instead of falling through it? Well if you figured out the solution even before testing it then props to you! Worry not if you tested the code without thinking, you just aren't paying enough attention! No worries, I won't tell you how to fix it. You figure it out yourself!
 
 Hint: Ghosts can't collide with colliders!
 
@@ -148,15 +148,15 @@ How does newtonian laws of motion help us understand how to move our character? 
 
 Sweet! Now you can make an educated choice on how to move your player! For this guide, we'll focus simply modifying our player's velocity with a custom script. Add a new custom C\# script component to your player (call it whatever you want related to movement). Monodevelop will open and we'll work on the script from there.
 
-If you are working on C\#, you'll notice that the class extends MonoBehaviour which a bunch of predefined functions (Start, Update). Just assume that MonoBehaviour is your class of function to object references Unity provides for you. You'll also note the Unity libraries that are auto imported. We actually just need to focus on writing the Start and Update functions. The start function is called when the object has finished being instantiated. The update function is called every frame.
+If you are working on C\#, you'll notice that the class extends MonoBehaviour, which a bunch of predefined functions (eg Start, Update). Just assume that MonoBehaviour is your class of function to object references Unity provides for you. You'll also note the Unity libraries that are auto imported. We actually just need to focus on writing the Start and Update functions. The start function is called when the object has finished being instantiated. The update function is called every frame.
 
 \newpage
 
-Here's a quick exercise: Write up the functions needed to change the velocity of the character left and right. You should start by grabbing a reference to the object's Rigidbody in the Start function (check out the GetComponent$<$T$>$() documentation). Now, in the update function, you should continually check for input (check out the Input documentation) and update the velocity according to the button pressed. For more details check out: \url{http://answers.unity3d.com/questions/667641/how-do-i-move-my-2d-object-using-arrow-keys-also-h.html}
+Here's a quick exercise: Write up the functions needed to change the velocity of the character left and right. You should start by grabbing a reference to the object's Rigidbody2D in the Start function (check out the GetComponent$<$T$>$() documentation). In the update function, you should continually check for input (check out the Input documentation) and update the velocity according to the button pressed. For more details check out: \url{http://answers.unity3d.com/questions/667641/how-do-i-move-my-2d-object-using-arrow-keys-also-h.html}
 
 Extra: If you used Input.GetKey(), try using Input.GetAxis() instead. The reason why GetKey isn't preferred is because GetAxis controls can be mapped through Unity settings so you aren't limited to only the key you chose to begin with.
 
-Extra: Another Monobehaviour function is known as fixedUpdate. Since update is called per frame, frame rate may likely affect your game. To avoid this, you can/should use fixedUpdate to change in-game transforms, and velocity. Update can accurately pick up user input however so use them together. Here's some more info about fixedUpdate vs update: \url{http://answers.unity3d.com/questions/10993/whats-the-difference-between-update-and-fixedupdat.html}
+Extra: Another Monobehaviour function is known as fixedUpdate. Since update is called per frame, frame rate likely affects your game. To avoid this, you can/should use fixedUpdate to change in-game transforms, and velocity. Update can accurately pick up user input however so use them together. Here's some more info about fixedUpdate vs update: \url{http://answers.unity3d.com/questions/10993/whats-the-difference-between-update-and-fixedupdat.html}
 
 Extra: Let's at least make our character look left and right when he moves. We can simply change the transform scale of the object by flipping it on the y axis. (In case you need another hint, try multiplying the scale by -1).
 
